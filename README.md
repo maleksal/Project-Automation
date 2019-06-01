@@ -2,12 +2,17 @@
 ## How it works?
 
 * Download the repository
-* in create.py add your Github username and password
+* install requirements.tx 
+```terminal 
+pip install -r requirements.txt
+```
+* Download [Chrome webDriver](http://chromedriver.chromium.org/downloads)
+* In create.py add your Github username and password
 ```python
 username = ''
 password = ''
 ```
-* edit the commands.sh
+* Edit the commands.sh
 ```sh
 function create() {
     cd
