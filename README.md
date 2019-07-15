@@ -7,7 +7,7 @@
 * Download [Chrome webDriver](http://chromedriver.chromium.org/downloads)
 * [Auto Config](#auto-config)
 * [Manual Config](#manual-config)
-* [Run](#run)
+* [Run](#run-command)
 
 
 ### Auto Config
