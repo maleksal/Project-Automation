@@ -7,6 +7,8 @@
 * Download [Chrome webDriver](http://chromedriver.chromium.org/downloads)
 * [Auto Config](#auto-config)
 * [Manual Config](#manual-config)
+* [Run](#run)
+
 
 ### Auto Config
 * Run setup.py 
@@ -47,7 +49,8 @@ $ vim ~/.bashrc
 source <path to commands.sh> 
 Ex: source /home/cyber/cyber-Tech/commands.sh
 ```
-# Terminal command
+# run command
+* Type 
 ```terminal 
 create <your project name>
 Ex : create myproject
