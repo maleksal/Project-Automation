@@ -2,21 +2,25 @@ import os
 import sys
 import git
 
+from __utilities__.utilities import config
+
 from selenium import webdriver
 
+
 # get current dir and project name
-path = os.getcwd()
+path = config()["PATH"]["PROJECT_PATH"]
 try:
     repo_name = str(sys.argv[1])
 except:
     print("Usage: create <project_name>")
     sys.exit()
 
-browser = webdriver.Chrome()
-browser.get('http://github.com/login')
 
-username = ''
-password = ''
+browser = webdriver.Chrome()
+browser.get(config()["URLS"]["LOGIN_LINK"])
+
+username = config()["AUTH"]["USERNAME"]
+password = config()["AUTH"]["PASSWORD"]
 
 def create_repo():
     
@@ -27,13 +31,16 @@ def create_repo():
     python_button.send_keys(password)
     python_button = browser.find_elements_by_xpath("//input[@name='commit']")[0]
     python_button.click()
-    print("[+] Logged in to Github.com")
+    print("[+] Logged into Github.com")
 
     # Create repository
-    browser.get('https://github.com/new') 
+    browser.get(config()["URLS"]["NEW_REPO"]) 
     python_button = browser.find_elements_by_xpath("//input[@name='repository[name]']")[0] 
     python_button.send_keys(repo_name)
-    init_readme = browser.find_elements_by_xpath('//*[@id="repository_auto_init"]')[0].click()
+    
+    # init a readme file
+    browser.find_elements_by_xpath('//*[@id="repository_auto_init"]')[0].click()
+   
     python_button = browser.find_element_by_css_selector('button.first-in-line')
     python_button.submit()
     print(f"[+] Created repository: {repo_name}")
