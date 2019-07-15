@@ -49,10 +49,10 @@ $ vim ~/.bashrc
 source <path to commands.sh> 
 Ex: source /home/cyber/cyber-Tech/commands.sh
 ```
-# run command
-* Type 
+# run command 
+
 ```terminal 
+in the terminal type:
 create <your project name>
-Ex : create myproject
 ```
 
