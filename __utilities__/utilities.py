@@ -3,6 +3,16 @@ import pwd
 import os
 
 
+
+def install_requirements():
+    try: 
+        os.system("sudo pip3 install -r requirements.txt")
+        os.system("clear")
+    except:
+        os.system("sudo pip install -r requirements.txt")
+        os.system("clear")
+
+
 def config():
     """
     get data from config.ini

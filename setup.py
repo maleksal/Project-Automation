@@ -1,9 +1,13 @@
 # Auto Configure Files
 
+from __utilities__.utilities import install_requirements
 from __utilities__.utilities import config_file
 from __utilities__.utilities import command_sh
 from __utilities__.utilities import write_bashrc
 
+
+# install requirements
+install_requirements()
 
 # Inputs for config.ini 
 get_username = input("[*] Github Username/Email:  ")
