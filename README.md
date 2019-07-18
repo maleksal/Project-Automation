@@ -19,7 +19,7 @@ sudo python3 setup.py
 ```
 ### Manual Config
 
-* install requirements.tx 
+* install requirements.txt
 ```terminal 
 pip install -r requirements.txt
 ```
