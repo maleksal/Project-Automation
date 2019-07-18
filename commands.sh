@@ -1,5 +1,5 @@
  #!/bin/bash
 
 function create() {
-python3 < path to >/create.py $1
+python3 /home/development/AutomatingProjectInitialization/create.py $1
 }

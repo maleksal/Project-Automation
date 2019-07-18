@@ -1,4 +1,3 @@
-import configparser
 import pwd
 import os
 
@@ -13,31 +12,21 @@ def install_requirements():
         os.system("clear")
 
 
-def config():
-    """
-    get data from config.ini
-    """
-
-    config = configparser.ConfigParser()
-    config.read(os.path.join(os.getcwd(), 'config.ini'))
-    return config
-
-
 def config_file(username, password, path):
     """
     write data into config.ini
     """
     code = f"""
-        [AUTH]
-        USERNAME = {username}
-        PASSWORD = {password}
+    [AUTH]
+    USERNAME = {username}
+    PASSWORD = {password}
 
-        [URLS]
-        LOGIN_LINK = https://github.com/login
-        NEW_REPO = https://github.com/new
+    [URLS]
+    LOGIN_LINK = https://github.com/login
+    NEW_REPO = https://github.com/new
 
-        [PATH]
-        PROJECT_PATH = {path}
+    [PATH]
+    PROJECT_PATH = {path}
     """
     file = open("config.ini", "w")
     file.write(code)

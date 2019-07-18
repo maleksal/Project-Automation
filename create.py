@@ -2,25 +2,21 @@ import os
 import sys
 import git
 
-from __utilities__.utilities import config
+import configparser
 
 from selenium import webdriver
 
 
-# get current dir and project name
-path = config()["PATH"]["PROJECT_PATH"]
-try:
-    repo_name = str(sys.argv[1])
-except:
-    print("Usage: create <project_name>")
-    sys.exit()
+
+def config():
+    """
+    get data from config.ini
+    """
+    config = configparser.ConfigParser()
+    config.read(os.path.join(os.path.abspath(os.path.dirname(__file__)), 'config.ini'))
+    return config
 
 
-browser = webdriver.Chrome()
-browser.get(config()["URLS"]["LOGIN_LINK"])
-
-username = config()["AUTH"]["USERNAME"]
-password = config()["AUTH"]["PASSWORD"]
 
 def create_repo():
     
@@ -52,4 +48,22 @@ def create_repo():
     browser.quit()
 
 if __name__ == "__main__":
-        create_repo()
+    
+    try:
+        repo_name = str(sys.argv[1])
+    except:
+        print("Usage: create <project_name>")
+        sys.exit()
+    
+
+    # get current dir and project name
+
+    path = config()["PATH"]["PROJECT_PATH"]
+
+    browser = webdriver.Chrome()
+    browser.get(config()["URLS"]["LOGIN_LINK"])
+
+    username = config()["AUTH"]["USERNAME"]
+    password = config()["AUTH"]["PASSWORD"]
+
+    create_repo()
